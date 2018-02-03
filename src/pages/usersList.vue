@@ -1,0 +1,52 @@
+<template>
+  <div v-if="!haveUsers" class = "text-center alert alert-primary ">
+          Загрузка...
+        </div>
+        <list-of-users v-else v-bind:users-expected = "users"></list-of-users>
+</template>
+
+<script>
+	import usersList from '@/components/users-list.vue'
+
+	export default {
+		name: 'usersList',
+		components:{
+          'list-of-users': usersList
+        },
+        data:function(){
+          return {
+            users:[]
+          };
+        },
+        computed:{
+          haveUsers:function(){
+            return this.users.length > 0;
+          }
+        },
+        methods:{
+          getData:function(){
+            let xhr = new XMLHttpRequest();
+
+            let self = this;
+
+            xhr.addEventListener('readystatechange',function(event) {
+              if (xhr.readyState !== 4 || xhr.status !== 200){
+                return;
+              }
+
+              const data =  JSON.parse(xhr.responseText);
+
+              self.users = data;
+            });
+
+            xhr.open('GET', 'users.json', true);
+            xhr.send(); 
+          }
+        },
+        mounted: function(){
+          this.getData();
+        }
+	}
+</script>
+
+
