@@ -34,9 +34,9 @@
                 return;
               }
 
-              const data =  JSON.parse(xhr.responseText);
+              const data =  JSON.parse(xhr.responseText);//data is object from users.json
 
-              self.users = data;
+              self.users = data['usersList'];//usersList is prop of object 'data'
             });
 
             xhr.open('GET', 'users.json', true);
