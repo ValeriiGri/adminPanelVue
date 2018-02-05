@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "start":"json-server --watch public/users.json --port 3004"
+    "start":"json-server --watch public/users.json"
   },
   "dependencies": {
     "vue": "^2.5.13",

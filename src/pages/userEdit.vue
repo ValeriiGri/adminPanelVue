@@ -18,6 +18,11 @@
             user:null
           };
         },
+        computed:{
+        	getId:function(){
+            	return this.$route.params.id;
+            }
+        },
         methods: {
           getUser: function(){
             let xhr = new XMLHttpRequest();
@@ -31,10 +36,10 @@
 
               const data =  JSON.parse(xhr.responseText);
 
-              self.user = data['usersList'][0];
+              self.user = data[self.getId-1];
             });
 
-            xhr.open('GET', 'users.json', true);
+            xhr.open('GET', 'http://localhost:3000/usersList', true);
             xhr.send(); 
           },
         },

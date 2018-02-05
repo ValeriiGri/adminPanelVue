@@ -34,12 +34,12 @@
                 return;
               }
 
-              const data =  JSON.parse(xhr.responseText);//data is object from users.json
+              const data =  JSON.parse(xhr.responseText);
 
-              self.users = data['usersList'];//usersList is prop of object 'data'
+              self.users = data;
             });
 
-            xhr.open('GET', 'users.json', true);
+            xhr.open('GET', 'http://localhost:3000/usersList', true);
             xhr.send(); 
           }
         },
