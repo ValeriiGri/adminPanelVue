@@ -18,7 +18,7 @@
     </div>
     <div class="form-group">
       <label>Age</label>
-      <input type="text" class="form-control" v-model="userExpected.age">
+      <input type="number" class="form-control" v-model.number="userExpected.age">
     </div>
 
     <pre>{{userExpected}}</pre>

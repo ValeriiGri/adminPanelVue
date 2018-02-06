@@ -1,8 +1,8 @@
 <template>
-  <div v-if="!haveUsers" class = "text-center alert alert-primary ">
+  <div v-if="!haveUsers" class="text-center alert alert-primary ">
           Загрузка...
         </div>
-        <list-of-users v-else v-bind:users-expected = "users"></list-of-users>
+        <list-of-users v-else v-bind:users-expected="users"></list-of-users>
 </template>
 
 <script>

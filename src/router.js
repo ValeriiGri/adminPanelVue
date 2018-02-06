@@ -1,14 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from './pages/hello.vue'
-import Users from './pages/usersList.vue'
-import Edit from './pages/userEdit.vue'
-import Add from './pages/userAdd.vue'
+import Users from './pages/usersListPage.vue'
+import Edit from './pages/userEditPage.vue'
+import Add from './pages/userAddPage.vue'
 
 
 Vue.use(Router);
 
 export default new Router({
+  mode:'history',
   routes: [
     {
       path: '/',

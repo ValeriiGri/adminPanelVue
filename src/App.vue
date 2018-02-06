@@ -3,7 +3,9 @@
 
     <header class="masthead">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">Vue.js</a>
+        <router-link class="navbar-brand" to="/">
+          Vue.js
+        </router-link>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
