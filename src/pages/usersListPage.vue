@@ -6,12 +6,12 @@
 </template>
 
 <script>
-    import ListOfUsers from '@/components/users-list.vue'
+    //import ListOfUsers from '@/components/users-list.vue'
 
   	export default {
     		name: 'usersList',
     		components:{
-              ListOfUsers //ListOfUsers: () => import ('@/components/users-list.vue')
+              ListOfUsers: () => import ('@/components/users-list.vue')
             },
         data:function(){
           return {
