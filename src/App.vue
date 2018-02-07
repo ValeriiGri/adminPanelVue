@@ -3,23 +3,18 @@
 
     <header class="masthead">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <router-link class="navbar-brand" to="/">
-          Vue.js
+        <router-link class="navbar-brand" to="/home">
+            Vue.js
         </router-link>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <router-link tag="li" active-class="active" to="/users">
+            <router-link tag="li" class="nav-item" to="/users">
               <a class="nav-link">
                 List of users
               </a>
             </router-link>
-            <router-link tag="li" class="nav-item" active-class="active" to="/edit">
-              <a class="nav-link">
-                Edit user
-              </a>
-            </router-link>
-            <router-link tag="li" class="nav-item" active-class="active" to="/add">
+            <router-link tag="li" class="nav-item" to="/add">
               <a class="nav-link">
                 Add user
               </a>

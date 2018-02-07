@@ -20,6 +20,20 @@
       <label>Age</label>
       <input type="number" class="form-control" v-model.number="userExpected.age">
     </div>
+    <div class="form-group">
+      <label>Активный</label>
+      <div class="checkbox-inline">
+        <input type="checkbox" v-model="userExpected.isActive" /> Да
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Уровень доступа</label>
+      <select class="form-control" v-model="userExpected.accessLevel">
+        <option v-for="item of accessList" :key="item">
+          {{ item }}
+        </option>
+      </select>
+    </div>
 
     <pre>{{userExpected}}</pre>
   </div>
@@ -34,6 +48,9 @@
           type:Object,
           required:true
         }
-      }
+      },
+      data:() =>({
+        accessList:['user','guest','admin']
+      })
     };
 </script>

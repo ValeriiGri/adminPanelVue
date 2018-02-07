@@ -5,6 +5,7 @@
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Active</th>
+        <th scope="col">Level</th>
         <th scope="col">Balance</th>
         <th scope="col">Age</th>
         <th scope="col">Gender</th>
@@ -14,9 +15,14 @@
     </thead>
     <tbody>
       <tr v-for = "item of usersExpected" v-bind:key = item.num>
-        <th scope="row">{{item.id}}</th>
+        <th scope="row">
+          <router-link v-bind:to="`/users/${item.id}`">
+            {{item.id}}
+          </router-link>
+        </th>
         <td>{{item.name}}</td>
         <td>{{item.isActive}}</td>
+        <td>{{item.accessLevel}}</td>
         <td>{{item.balance}}</td>
         <td>{{item.age}}</td>
         <td>{{item.gender}}</td>

@@ -6,12 +6,11 @@
 </template>
 
 <script>
-	import userEdit from '@/components/user-edit.vue'
 
 	export default {
         name:'EditUser',
         components:{
-          'form-for-edit': userEdit
+          FormForEdit: () => import ('@/components/user-edit.vue')
         },
         data:function(){
           return {
