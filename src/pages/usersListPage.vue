@@ -1,18 +1,18 @@
 <template>
-  <div v-if="!haveUsers" class="text-center alert alert-primary ">
-          Загрузка...
-        </div>
-        <list-of-users v-else v-bind:users-expected="users"></list-of-users>
+    <div v-if="!haveUsers" class="text-center alert alert-primary ">
+            Загрузка...
+    </div>
+    <list-of-users v-else v-bind:users-expected="users"></list-of-users>
 </template>
 
 <script>
-	import usersList from '@/components/users-list.vue'
+    import ListOfUsers from '@/components/users-list.vue'
 
-	export default {
-		name: 'usersList',
-		components:{
-          'list-of-users': usersList
-        },
+  	export default {
+    		name: 'usersList',
+    		components:{
+              ListOfUsers //ListOfUsers: () => import ('@/components/users-list.vue')
+            },
         data:function(){
           return {
             users:[]
@@ -46,7 +46,7 @@
         mounted: function(){
           this.getData();
         }
-	}
+	 }
 </script>
 
 
