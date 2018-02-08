@@ -1,8 +1,13 @@
 <template>
-  	<div v-if="!user" class = "text-center alert alert-primary ">
-          Загрузка...
+	<div>
+	  	<div v-if="!user" class = "text-center alert alert-primary ">
+	          Загрузка...
+		</div>
+		<form-for-edit v-else v-model="user"></form-for-edit>
+		<button type="button" class="btn btn-success" @click="save">
+			Save
+		</button>
 	</div>
-	<form-for-edit v-else v-bind:user-expected ="user"></form-for-edit>
 </template>
 
 <script>
@@ -23,24 +28,33 @@
             }
         },
         methods: {
-          getUser: function(){
-            let xhr = new XMLHttpRequest();
+			getUser: function(){
+				let xhr = new XMLHttpRequest();
 
-            let self = this;
+				let self = this;
 
-            xhr.addEventListener('readystatechange',function(event) {
-              if (xhr.readyState !== 4 || xhr.status !== 200){
-                return;
-              }
+				xhr.addEventListener('readystatechange',function(event) {
+					if (xhr.readyState !== 4 || xhr.status !== 200){
+						return;
+					}
 
-              const data =  JSON.parse(xhr.responseText);
+					const data =  JSON.parse(xhr.responseText);
 
-              self.user = data[self.getId-1];
-            });
+					self.user = data[self.getId-1];
+				});
 
-            xhr.open('GET', 'http://localhost:3000/usersList', true);
-            xhr.send(); 
-          },
+				xhr.open('GET', 'http://localhost:3000/usersList', true);
+				xhr.send(); 
+			},
+
+			save: function(){
+
+				let xhr = new XMLHttpRequest();
+
+				xhr.open("PUT", `http://localhost:3000/usersList/${this.getId}`, true);
+				xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+				xhr.send(JSON.stringify(this.user));
+			}
         },
         mounted: function(){
             this.getUser();

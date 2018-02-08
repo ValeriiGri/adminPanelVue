@@ -1,9 +1,5 @@
   import Vue from 'vue'
   import Router from 'vue-router'
-  import Hello from './pages/hello.vue'
-  import Users from './pages/usersListPage.vue'
-  import Edit from './pages/userEditPage.vue'
-  import Add from './pages/userAddPage.vue'
 
 Vue.use(Router);
 
@@ -14,22 +10,22 @@ export default new Router({
     {
       path: '/home',
       name: 'Hello',
-      component: Hello
+      component: () => import ('./pages/hello.vue')
     },  
     {
       path: '/users',
       name: 'Users',
-      component: Users
+      component: () => import ('./pages/usersListPage.vue')
     },
     {
       path: '/users/:id',
       name: 'Edit',
-      component: Edit
+      component: () => import ('./pages/userEditPage.vue')
     },
     {
       path: '/add',
       name: 'Add',
-      component: Add
+      component: () => import ('./pages/userAddPage.vue')
     }
   ]
 });

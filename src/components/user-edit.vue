@@ -43,8 +43,11 @@
 <script>
     export default {
       name:'Edit',
+      model:{
+        prop:'userExpected'//меняем value(по умолчанию у v-model) на userExpected,чтобы не писать везде value.prop 
+      },
       props:{
-        userExpected:{
+        userExpected:{  //ожидаем userExpected, а не value сверху(из <form-for-edit v-else v-model="user"></form-for-edit>)
           type:Object,
           required:true
         }
