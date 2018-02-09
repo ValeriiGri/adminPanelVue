@@ -7,6 +7,9 @@
 		<button type="button" class="btn btn-success" @click="save">
 			Save
 		</button>
+		<button type="button" class="btn btn-danger" @click="remove">
+			Delete
+		</button>
 	</div>
 </template>
 
@@ -54,6 +57,16 @@
 				xhr.open("PUT", `http://localhost:3000/usersList/${this.getId}`, true);
 				xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 				xhr.send(JSON.stringify(this.user));
+				this.$router.push('/users');
+			},
+
+			remove: function(){
+
+				let xhr = new XMLHttpRequest();
+
+				xhr.open("DELETE", `http://localhost:3000/usersList/${this.getId}`);
+				xhr.send();
+				this.$router.push('/users');
 			}
         },
         mounted: function(){

@@ -25,20 +25,20 @@
     {
       "id": 3,
       "isActive": true,
-      "accessLevel": "user",
-      "balance": "$5,866.47",
-      "age": 21,
-      "name": "Valari William",
+      "balance": "$2,893.16",
+      "age": 27,
+      "name": "Cruz Bailey",
       "gender": "male",
-      "email": "valariwilliam@netplax.com",
-      "phone": "+1 (850) 455-2331"
+      "email": "cruzbailey@honotron.com",
+      "phone": "+1 (954) 594-2316",
+      "accessLevel": "guest"
     },
     {
       "id": 4,
       "isActive": true,
       "accessLevel": "guest",
       "balance": "$2,846.47",
-      "age": 20,
+      "age": 31,
       "name": "Valarie Williamson",
       "gender": "female",
       "email": "valariewilliamson@netplax.com",
@@ -208,28 +208,6 @@
       "gender": "male",
       "email": "ballparks@netplax.com",
       "phone": "+1 (881) 569-2024"
-    },
-    {
-      "id": 20,
-      "isActive": false,
-      "accessLevel": "guest",
-      "balance": "$2,053.18",
-      "age": 29,
-      "name": "Justine Parker",
-      "gender": "female",
-      "email": "justineparker@netplax.com",
-      "phone": "+1 (863) 527-2822"
-    },
-    {
-      "id": 21,
-      "isActive": true,
-      "accessLevel": "user",
-      "balance": "$3,391.97",
-      "age": 23,
-      "name": "Deirdre Prince",
-      "gender": "female",
-      "email": "deirdreprince@netplax.com",
-      "phone": "+1 (999) 499-2677"
     }
   ]
 }
