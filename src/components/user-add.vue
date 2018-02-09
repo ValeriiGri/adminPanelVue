@@ -2,56 +2,56 @@
   <div class="font-weight-bold">
     <div class="form-group">
       <label>Name</label>
-      <input type="text" class="form-control" v-model="userExpected.name">
+      <input type="text" class="form-control" v-model="newUser.name">
     </div>
     <div class="form-group">
       <label>Email</label>
-      <input type="text" class="form-control" v-model="userExpected.email">
+      <input type="text" class="form-control" v-model="newUser.email">
     </div>
     <div class="form-group">
       <label>Balance</label>
-      <input type="text" class="form-control" v-model="userExpected.balance">
+      <input type="text" class="form-control" v-model="newUser.balance">
     </div>
     <div class="form-group">
       <label>Phone</label>
-      <input type="text" class="form-control" v-model="userExpected.phone">
+      <input type="text" class="form-control" v-model="newUser.phone">
     </div>
     <div class="form-group">
       <label>Age</label>
-      <input type="number" class="form-control" v-model.number="userExpected.age">
+      <input type="number" class="form-control" v-model.number="newUser.age">
     </div>
     <div class="form-group">
       <label>Gender</label>
-      <input type="text" class="form-control" v-model="userExpected.gender">
+      <input type="text" class="form-control" v-model="newUser.gender">
     </div>
     <div class="form-group">
       <label>Активный</label>
       <div class="checkbox-inline">
-        <input type="checkbox" v-model="userExpected.isActive" /> Да
+        <input type="checkbox" v-model="newUser.isActive" /> Да
       </div>
     </div>
     <div class="form-group">
       <label>Уровень доступа</label>
-      <select class="form-control" v-model="userExpected.accessLevel">
+      <select class="form-control" v-model="newUser.accessLevel">
         <option v-for="item of accessList" :key="item">
           {{ item }}
         </option>
       </select>
     </div>
 
-    <pre>{{userExpected}}</pre>
+    <pre>{{newUser}}</pre>
   </div>
 </template>
     
 
 <script>
     export default {
-      name:'Edit',
+      name:'Add',
       model:{
-        prop:'userExpected'//меняем value(по умолчанию у v-model) на userExpected,чтобы не писать везде value.prop 
+        prop:'newUser'//меняем value(по умолчанию у v-model) на newUser,чтобы не писать везде value.prop 
       },
       props:{
-        userExpected:{  //ожидаем userExpected, а не value сверху(из <form-for-edit v-else v-model="user"></form-for-edit>)
+        newUser:{  //ожидаем newUser, а не value сверху(из <form-for-add v-else v-model="newUser"></form-for-add>)
           type:Object,
           required:true
         }

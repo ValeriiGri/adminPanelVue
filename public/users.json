@@ -3,7 +3,7 @@
     {
       "id": 1,
       "isActive": true,
-      "accessLevel": "user",
+      "accessLevel": "guest",
       "balance": "$2,668.50",
       "age": 33,
       "name": "Justice Mullins",
