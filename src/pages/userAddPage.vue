@@ -17,12 +17,12 @@
         data:function(){
           return {
             newUser:{
-            	id:this.getId
+            	id:this.userId
             }
           };
         },
         computed:{
-        	getId:function(){
+        	userId:function(){
             	return this.getData();
             }
         },
@@ -39,7 +39,7 @@
 	              }
 
 	              const data =  JSON.parse(xhr.responseText);
-	               amount = data.length;
+	              amount = data.length;
 	            });
 
 	            xhr.open('GET', 'http://localhost:3000/usersList', true);

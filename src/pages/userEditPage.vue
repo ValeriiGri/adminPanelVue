@@ -22,11 +22,12 @@
         },
         data:function(){
           return {
-            user:null
+            user:null,
+            url:'http://localhost:3000/usersList/'
           };
         },
         computed:{
-        	getId:function(){
+        	userId:function(){
             	return this.$route.params.id;
             }
         },
@@ -43,10 +44,10 @@
 
 					const data =  JSON.parse(xhr.responseText);
 
-					self.user = data[self.getId-1];
+					self.user = data;
 				});
 
-				xhr.open('GET', 'http://localhost:3000/usersList', true);
+				xhr.open('GET', this.url+`${this.userId}`, true);
 				xhr.send(); 
 			},
 
@@ -54,7 +55,7 @@
 
 				let xhr = new XMLHttpRequest();
 
-				xhr.open("PUT", `http://localhost:3000/usersList/${this.getId}`, true);
+				xhr.open("PUT", this.url+`${this.userId}`, true);
 				xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
 				xhr.send(JSON.stringify(this.user));
 				this.$router.push('/users');
@@ -64,7 +65,7 @@
 
 				let xhr = new XMLHttpRequest();
 
-				xhr.open("DELETE", `http://localhost:3000/usersList/${this.getId}`);
+				xhr.open("DELETE", this.url+`${this.userId}`);
 				xhr.send();
 				this.$router.push('/users');
 			}

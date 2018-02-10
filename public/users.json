@@ -16,7 +16,7 @@
       "isActive": true,
       "accessLevel": "guest",
       "balance": "$2,520.77",
-      "age": 27,
+      "age": 273,
       "name": "Acevedo Lowery",
       "gender": "male",
       "email": "acevedolowery@netplax.com",
@@ -197,17 +197,6 @@
       "gender": "female",
       "email": "bethanyalexander@netplax.com",
       "phone": "+1 (822) 458-2163"
-    },
-    {
-      "id": 19,
-      "isActive": false,
-      "accessLevel": "guest",
-      "balance": "$3,131.95",
-      "age": 32,
-      "name": "Ball Parks",
-      "gender": "male",
-      "email": "ballparks@netplax.com",
-      "phone": "+1 (881) 569-2024"
     }
   ]
 }
