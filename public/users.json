@@ -13,7 +13,7 @@
     },
     {
       "id": 2,
-      "isActive": true,
+      "isActive": false,
       "accessLevel": "guest",
       "balance": "$2,520.77",
       "age": 273,
@@ -28,10 +28,10 @@
       "balance": "$2,893.16",
       "age": 27,
       "name": "Cruz Bailey",
-      "gender": "male",
+      "gender": "female",
       "email": "cruzbailey@honotron.com",
       "phone": "+1 (954) 594-2316",
-      "accessLevel": "guest"
+      "accessLevel": "admin"
     },
     {
       "id": 4,
@@ -196,7 +196,15 @@
       "name": "Bethany Alexander",
       "gender": "female",
       "email": "bethanyalexander@netplax.com",
-      "phone": "+1 (822) 458-2163"
+      "phone": "+1 (822) 458-21"
+    },
+    {
+      "id": 19,
+      "name": "rfv",
+      "email": "edc",
+      "balance": "12",
+      "phone": "1",
+      "age": 1
     }
   ]
 }

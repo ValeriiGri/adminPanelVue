@@ -3,13 +3,16 @@
 	  	<div v-if="!user" class = "text-center alert alert-primary ">
 	          Загрузка...
 		</div>
-		<form-for-edit v-else v-model="user"></form-for-edit>
-		<button type="button" class="btn btn-success" @click="save">
-			Save
-		</button>
-		<button type="button" class="btn btn-danger" @click="remove">
-			Delete
-		</button>
+		
+		<template v-else>
+			<form-for-edit v-model="user"></form-for-edit>
+			<button type="button" class="btn btn-success" @click="save">
+				Save
+			</button>
+			<button type="button" class="btn btn-danger" @click="remove">
+				Delete
+			</button>
+		</template>
 	</div>
 </template>
 

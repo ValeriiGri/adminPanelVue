@@ -6,7 +6,6 @@
 </template>
 
 <script>
-    //import ListOfUsers from '@/components/users-list.vue'
 
   	export default {
     		name: 'usersList',
@@ -15,7 +14,8 @@
             },
         data:function(){
           return {
-            users:[]
+            users:[],
+            url:'http://localhost:3000/usersList'
           };
         },
         computed:{
@@ -39,7 +39,7 @@
               self.users = data;
             });
 
-            xhr.open('GET', 'http://localhost:3000/usersList', true);
+            xhr.open('GET',this.url , true);
             xhr.send(); 
           }
         },

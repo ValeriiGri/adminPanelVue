@@ -22,7 +22,11 @@
     </div>
     <div class="form-group">
       <label>Gender</label>
-      <input type="text" class="form-control" v-model="newUser.gender">
+      <select class="form-control" v-model="newUser.gender">
+        <option v-for="item of genderList" :key="item">
+          {{ item }}
+        </option>
+      </select>
     </div>
     <div class="form-group">
       <label>Активный</label>
@@ -57,7 +61,8 @@
         }
       },
       data:() =>({
-        accessList:['user','guest','admin']
+        accessList:['user','guest','admin'],
+        genderList:['male','female']
       })
     };
 </script>
