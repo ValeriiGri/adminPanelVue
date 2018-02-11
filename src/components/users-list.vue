@@ -40,6 +40,7 @@
         </tr>
       </tfoot>
     </table>
+    <next-previous-page v-model="currentPage"/>
   </div>
 </template>
     
@@ -53,18 +54,21 @@
       }
     },
     components:{
-      UsersPerPage:() => import('@/components/users-per-page.vue')
+      UsersPerPage:() => import('@/components/users-per-page.vue'),
+      NextPreviousPage:() => import('@/components/paginator.vue') 
     },
     data:() =>({
-      rowsCount:10
+      rowsCount:5,
+      currentPage:1
     }),
     computed:{
       usersTotal:function(){
         return this.usersExpected.length;
       },
       usersFiltered:function(){
-        return this.usersExpected.filter((item,index)=>{return index < this.rowsCount});
-      }  
-    }
+        return this.usersExpected.filter((item,index)=>{
+          return ((index < this.rowsCount*this.currentPage)&&(index >= this.rowsCount*(this.currentPage-1)))});
+      }
+    }  
   };
 </script>
