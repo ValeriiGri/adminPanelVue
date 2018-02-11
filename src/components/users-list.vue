@@ -1,6 +1,6 @@
 <template>
   <div>
-    <users-per-page v-model.number="rowsCount"/><span>[{{rowsCount}}]</span>
+    <users-per-page v-model.number="rowsCount"/>
     <table class="table">
       <thead class="thead-light">
         <tr>
@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for = "item of usersExpected" v-bind:key = item.num>
+        <tr v-for = "item of usersFiltered" v-bind:key = item.id>
           <th scope="row">
             <router-link v-bind:to="`/users/${item.id}`">
               {{item.id}}
@@ -61,7 +61,10 @@
     computed:{
       usersTotal:function(){
         return this.usersExpected.length;
-      }
+      },
+      usersFiltered:function(){
+        return this.usersExpected.filter((item,index)=>{return index < this.rowsCount});
+      }  
     }
   };
 </script>
