@@ -40,7 +40,7 @@
         </tr>
       </tfoot>
     </table>
-    <next-previous-page v-model="currentPage" :total-users-expected=this.usersTotal :rows-per-page-expected="rowsCount"></next-previous-page>
+    <next-previous-page v-model="currentPage" :total-users-expected="usersTotal" :rows-per-page-expected="rowsCount"></next-previous-page>
   </div>
 </template>
     
