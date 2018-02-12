@@ -1,6 +1,6 @@
 <template>
   <div>
-    <users-per-page v-model.number="rowsCount"/>
+    <users-per-page v-model.number="rowsCount"/></users-per-page>
     <table class="table">
       <thead class="thead-light">
         <tr>
@@ -40,7 +40,7 @@
         </tr>
       </tfoot>
     </table>
-    <next-previous-page v-model="currentPage"/>
+    <next-previous-page v-model="currentPage" :total-users-expected=this.usersTotal :rows-per-page-expected="rowsCount"></next-previous-page>
   </div>
 </template>
     
@@ -57,10 +57,12 @@
       UsersPerPage:() => import('@/components/users-per-page.vue'),
       NextPreviousPage:() => import('@/components/paginator.vue') 
     },
-    data:() =>({
-      rowsCount:5,
-      currentPage:1
-    }),
+    data:function(){
+      return {
+        rowsCount:10,
+        currentPage:1
+      }
+    },
     computed:{
       usersTotal:function(){
         return this.usersExpected.length;

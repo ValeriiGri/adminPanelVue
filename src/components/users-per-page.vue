@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<select class="form-control" :value="value" @change="changed($event.target.value)">
-			<option v-for="item of list" :key="item" :value="item">
-				{{item + " users per page"}}
+			<option v-for="item of list" :key="item">
+				{{item}}
 			</option>
 		</select>
 	</div>
