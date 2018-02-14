@@ -21,6 +21,18 @@
       <input type="number" class="form-control" v-model.number="userExpected.age">
     </div>
     <div class="form-group">
+      <label>Avatar</label>
+
+      <img :src="userExpected.avatar">
+
+      <input type="file" ref="avatar" class="invisible" @change="upload">
+      <button type="button" class="btn btn-primary" @click="selectNewAvatar">
+        Выбрать новую
+      </button>
+
+      <input type="text" class="form-control" v-model="userExpected.avatar">
+    </div>
+    <div class="form-group">
       <label>Gender</label>
       <select class="form-control" v-model="userExpected.gender">
         <option v-for="item of genderList" :key="item">
@@ -31,7 +43,7 @@
     <div class="form-group">
       <label>Активный</label>
       <div class="checkbox-inline">
-        <input type="checkbox" v-model="userExpected.isActive" /> Да
+        <input type="checkbox" v-model="userExpected.isActive"> Да
       </div>
     </div>
     <div class="form-group">
@@ -63,6 +75,54 @@
       data:() =>({
         accessList:['user','guest','admin'],
         genderList:['male','female']
-      })
+      }),
+      methods:{
+        //Show browse window
+        selectNewAvatar:function(){
+          this.$refs.avatar.click();
+        },
+        upload:function() {
+          const url = 'https://api.imgur.com/3/image';
+          const data = new FormData();
+        
+          data.append('image',this.$refs.avatar.files[0]);
+
+          let file = data.get('image');
+          let self = this;
+
+          let xhr = new XMLHttpRequest();
+
+            xhr.addEventListener('readystatechange',function() {
+              if (xhr.readyState !== 4 || xhr.status !== 200){
+                return;
+              }
+
+              const resp = JSON.parse(xhr.response);
+
+              self.userExpected.avatar = resp.data.link;
+              self.$refs.avatar.value = '';
+
+            });
+
+          xhr.open("POST", url, true);
+          xhr.setRequestHeader('Content-type','multipart/form-data');
+          xhr.setRequestHeader('Authorization', 'Client-ID cc2383c189b2a3d');
+          xhr.send(file);
+          
+         
+
+        // axios.post(url, data, config)
+        //   .then(response => response.data)
+        //   .then(response => {
+             //this.setNewAvatar(xhr.responseURL.data.link);
+        //     this.$refs.avatarka.value = '';
+        }
+      }
     };
+
+    // {
+    //   "data":{"id":"2RHKn0s","title":null,"description":null,"datetime":1518607117,"type":"image\/png","animated":false,"width":24,"height":24,"size":822,"views":0,"bandwidth":0,"vote":null,"favorite":false,"nsfw":null,"section":null,"account_url":null,"account_id":0,"is_ad":false,"in_most_viral":false,"has_sound":false,"tags":[],"ad_type":0,"ad_url":"","in_gallery":false,"deletehash":"Dmq3JpDkzuuVwEB","name":"","link":"https:\/\/i.imgur.com\/2RHKn0s.png"},
+    //   "success":true,
+    //   "status":200
+    // }
 </script>

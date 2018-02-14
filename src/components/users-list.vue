@@ -13,6 +13,7 @@
           <th scope="col">Gender</th>
           <th scope="col">E-mail</th>
           <th scope="col">Phone</th>
+          <th scope="col">Avatar</th>
         </tr>
       </thead>
       <tbody>
@@ -30,6 +31,7 @@
           <td>{{item.gender}}</td>
           <td>{{item.email}}</td>
           <td>{{item.phone}}</td>
+          <td>{{item.avatar}}</td>
         </tr>
       </tbody>
       <tfoot>

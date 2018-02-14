@@ -10,27 +10,27 @@
 <script>
 
 	export default {
-        name:'AddUser',
-        components:{
-          FormForAdd: () => import ('@/components/user-add.vue')
-        },
-        data:function(){
-          return {
-            newUser:{
-            	id:null
-            },
-            url:'http://localhost:3000/usersList'
-          };
-        },
-		methods: {
-          	add: function(){
-          		let xhr = new XMLHttpRequest();
+      name:'AddUser',
+      components:{
+        FormForAdd: () => import ('@/components/user-add.vue')
+      },
+      data:function(){
+        return {
+          newUser:{
+          	id:null
+          },
+          url:'http://localhost:3000/usersList'
+        };
+      },
+  		methods: {
+      	add: function(){
+      		let xhr = new XMLHttpRequest();
 
-				xhr.open("POST", this.url, true);
-				xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
-				xhr.send(JSON.stringify(this.newUser));
-				this.$router.push('/users');
-          	}
+    			xhr.open("POST", this.url, true);
+    			xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+    			xhr.send(JSON.stringify(this.newUser));
+    			this.$router.push('/users');
         }
-    };
+      }
+  };
 </script>
