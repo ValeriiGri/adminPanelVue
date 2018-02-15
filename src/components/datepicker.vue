@@ -25,11 +25,13 @@
 			};
 		},
 		methods:{
-			//инициализируем плагин и записываем возвращенный экземпляр в flatP и оттуда имеем доступ к его св-вам, open(),например 
+			//инициализируем плагин и записываем возвращенный экземпляр в flatP 
+			//и оттуда имеем доступ к его св-вам, open(),например 
 			initPlagin(){
 				this.flatP = flatpickr(this.$refs.datepicker,{
 								dateFormat:'d.m.Y',
-								onChange:(selectedDates, dateStr) => {	//flatpickr's Function to trigger on every date selection.
+								//flatpickr's Function to trigger on every date selection.
+								onChange:(selectedDates, dateStr) => {	
 									this.update(dateStr);
 								}
 							}); 
