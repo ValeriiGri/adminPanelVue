@@ -10,6 +10,7 @@
           <th scope="col">Level</th>
           <th scope="col">Balance</th>
           <th scope="col">Age</th>
+          <th scope="col">Reg date</th>
           <th scope="col">Gender</th>
           <th scope="col">E-mail</th>
           <th scope="col">Phone</th>
@@ -28,6 +29,7 @@
           <td>{{item.accessLevel}}</td>
           <td>{{item.balance}}</td>
           <td>{{item.age}}</td>
+          <td>{{item.regDate}}</td>
           <td>{{item.gender}}</td>
           <td>{{item.email}}</td>
           <td>{{item.phone}}</td>

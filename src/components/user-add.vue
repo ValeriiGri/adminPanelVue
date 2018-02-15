@@ -17,6 +17,10 @@
       <input type="text" class="form-control" v-model="newUser.phone">
     </div>
     <div class="form-group">
+      <label>Registration date</label>
+      <input type="text" class="form-control" v-model="newUser.regDate">
+    </div>
+    <div class="form-group">
       <label>Age</label>
       <input type="number" class="form-control" v-model.number="newUser.age">
     </div>

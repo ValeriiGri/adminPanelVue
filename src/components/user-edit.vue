@@ -17,6 +17,12 @@
       <input type="text" class="form-control" v-model="userExpected.phone">
     </div>
     <div class="form-group">
+      <label>Registration date</label>
+      <input type="text" class="form-control" v-model="userExpected.regDate">
+      <datepicker v-model="userExpected.regDate"/>
+    </div>
+
+    <div class="form-group">
       <label>Age</label>
       <input type="number" class="form-control" v-model.number="userExpected.age">
     </div>
@@ -72,6 +78,9 @@
           required:true
         }
       },
+      components:{
+        datepicker:() => import('@/components/datepicker.vue')
+      },
       data:() =>({
         accessList:['user','guest','admin'],
         genderList:['male','female']
@@ -108,21 +117,7 @@
           xhr.setRequestHeader('Content-type','multipart/form-data');
           xhr.setRequestHeader('Authorization', 'Client-ID cc2383c189b2a3d');
           xhr.send(file);
-          
-         
-
-        // axios.post(url, data, config)
-        //   .then(response => response.data)
-        //   .then(response => {
-             //this.setNewAvatar(xhr.responseURL.data.link);
-        //     this.$refs.avatarka.value = '';
         }
       }
     };
-
-    // {
-    //   "data":{"id":"2RHKn0s","title":null,"description":null,"datetime":1518607117,"type":"image\/png","animated":false,"width":24,"height":24,"size":822,"views":0,"bandwidth":0,"vote":null,"favorite":false,"nsfw":null,"section":null,"account_url":null,"account_id":0,"is_ad":false,"in_most_viral":false,"has_sound":false,"tags":[],"ad_type":0,"ad_url":"","in_gallery":false,"deletehash":"Dmq3JpDkzuuVwEB","name":"","link":"https:\/\/i.imgur.com\/2RHKn0s.png"},
-    //   "success":true,
-    //   "status":200
-    // }
 </script>
