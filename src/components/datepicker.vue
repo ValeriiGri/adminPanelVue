@@ -19,26 +19,30 @@
 				required:true
 			}
 		},
+		data:function(){
+			return{
+				flatP:null
+			};
+		},
 		methods:{
+			//инициализируем плагин и записываем возвращенный экземпляр в flatP и оттуда имеем доступ к его св-вам, open(),например 
+			initPlagin(){
+				this.flatP = flatpickr(this.$refs.datepicker,{
+								dateFormat:'d.m.Y',
+								onChange:(selectedDates, dateStr) => {	//flatpickr's Function to trigger on every date selection.
+									this.update(dateStr);
+								}
+							}); 
+			},
 			dateP(){
-				flatpickr(this.$refs.datepicker,{
-						dateFormat:'d.m.Y',
-						onChange:(selectedDates, dateStr) => {	//flatpickr's Function to trigger on every date selection.
-							this.update(dateStr);
-						}
-						}).open();
+				this.flatP.open();
 			},
 			update (newDate) {
 				this.$emit('input',newDate)
 			}
 		},
 		mounted:function(){
-			flatpickr(this.$refs.datepicker,{
-						dateFormat:'d.m.Y',
-						onChange:(selectedDates, dateStr) => {	//flatpickr's Function to trigger on every date selection.
-							this.update(dateStr);
-						}
-						});
+			this.initPlagin();
 		}
 	}
 
