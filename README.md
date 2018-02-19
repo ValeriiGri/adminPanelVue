@@ -1,5 +1,6 @@
 # adminPanelVue
 Vue.js project
 
-#npm install json-server
-#npm install flatpickr
+# devDep
+npm install json-server
+npm install flatpickr
